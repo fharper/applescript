@@ -1,6 +1,8 @@
 # AppleScripts
 
-Here's are some Apple Scripts I created. Freel free to use at your own risks, or suggest any improvements as I'm not expert.
+Here's are some Apple Scripts I created. Use at your own risks.
+
+Feel free to suggest any improvements as I'm not expert, or add other useful ones.
 
 - [Fake Typing](#fake-typing)
 - [Get System Settings Panes IDs](#get-system-settings-panes-ids)
