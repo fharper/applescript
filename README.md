@@ -1,4 +1,4 @@
-# applescript
+# AppleScripts
 
 Here's are some Apple Scripts I created. Freel free to use at your own risks, or suggest any improvements as I'm not expert.
 
