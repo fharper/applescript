@@ -17,9 +17,9 @@ tell application "iTerm" to activate # Remove or change
 delay 2 # So you can move the mouse away or anything else
 
 repeat with i from 1 to count of characters in command
-	set letter to character i of command
-	tell application "System Events" to keystroke letter
-	delay (random number from 0.025 to 0.075)
+    set letter to character i of command
+    tell application "System Events" to keystroke letter
+    delay (random number from 0.025 to 0.075)
 end repeat
 
 tell application "System Events" to keystroke return
