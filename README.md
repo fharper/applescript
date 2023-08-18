@@ -3,6 +3,7 @@
 Here's are some Apple Scripts I created. Freel free to use at your own risks, or suggest any improvements as I'm not expert.
 
 - [Fake Typing](#fake-typing)
+- [Get System Settings Panes IDs](#get-system-settings-panes-ids)
 
 ## Fake Typing
 
@@ -25,3 +26,22 @@ tell application "System Events" to keystroke return
 ```
 
 [Compiled version](scripts/fake-typing.scpt).
+
+## Get System Settings Panes IDs
+
+Use it to find the ID of a specific panel on the left menu of System Settings so you can easily automate it in a script.
+
+```applescript
+tell application "System Settings"
+    activate
+
+    delay 0.5
+    set the current pane to pane id "com.apple.Notifications-Settings.extension"
+
+    tell every pane
+        its id
+    end tell
+end tell
+```
+
+[Compiled version](scripts/get-system-settings-panes-ids.scpt).
