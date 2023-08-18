@@ -6,6 +6,7 @@ Feel free to suggest any improvements as I'm not expert, or add other useful one
 
 - [Fake Typing](#fake-typing)
 - [Get System Settings Panes IDs](#get-system-settings-panes-ids)
+- [Notifications grouping off](scripts/notifications-grouping-off.scpt)
 
 ## Fake Typing
 
@@ -47,3 +48,49 @@ end tell
 ```
 
 [Compiled version](scripts/get-system-settings-panes-ids.scpt).
+
+## Notifications grouping off
+
+Useful to automatically set the notifications grouping setting to off for a specific application.
+
+```applescript
+set appName to "Google Chrome" # set to the app name displayed in the Notifications application list
+set delayTime to 0.5
+
+tell application "System Settings"
+
+    activate
+    delay delayTime
+    #my delayUntilApp("System Settings")
+
+    set the current pane to pane id "com.apple.Notifications-Settings.extension"
+    delay delayTime
+    #my delayUntilWindow("Notifications")
+
+
+    #do shell script "open x-apple.systempreferences:com.apple.Notifications-Settings.extension"
+    #delay delayTime
+
+    tell application "System Events"
+        tell front window of (first application process whose frontmost is true)
+
+            delay delayTime
+            set theButton to (first button of group 2 of scroll area 1 of group 1 of group 2 of splitter group 1 of group 1 whose value of attribute "AXAttributedDescription" contains appName)
+
+            click theButton
+            delay delayTime
+
+            click pop up button 2 of group 4 of scroll area 1 of group 1 of group 2 of splitter group 1 of group 1
+            delay delayTime
+
+            pick menu item "Off" of menu 1 of pop up button 2 of group 4 of scroll area 1 of group 1 of group 2 of splitter group 1 of group 1
+            delay delayTime
+
+            click button 1
+        end tell
+    end tell
+
+end tell
+```
+
+[Compiled version](scripts/notifications-grouping-off.scpt).
